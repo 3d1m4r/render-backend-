@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: confeitaria-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ABACATEPAY_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
