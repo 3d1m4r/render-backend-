@@ -111,7 +111,7 @@ export function setupRoutes(app: Express): void {
           body: JSON.stringify(pixPayload)
         });
         
-        const pixResponse: AbacatePayPixResponse = await response.json();
+        const pixResponse = await response.json() as AbacatePayPixResponse;
         console.log("📥 PIX API response:", pixResponse);
         
         if (pixResponse.error) {
@@ -195,7 +195,7 @@ export function setupRoutes(app: Express): void {
         }
       });
       
-      const checkResponse: AbacatePayCheckResponse = await response.json();
+      const checkResponse = await response.json() as AbacatePayCheckResponse;
       console.log("📥 Payment check response:", checkResponse);
       
       if (checkResponse.error) {
